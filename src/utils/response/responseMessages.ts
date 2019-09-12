@@ -6,7 +6,7 @@ let messages = {
         detail: 'response://wwww.taxi.com/api/doc/client2'
     },
     2: {
-        msg: 'User not found'
+        msg: 'Module not found'
     },
     3: {
         auth: false,
@@ -29,10 +29,10 @@ let messages = {
     },
     [errors.USER_NOT_FOUND]: {
         auth: false,
-        msg: 'User not found'
+        msg: 'Module not found'
     },
     [errors.USER_ALREADY_EXISTS]: {
-        msg: 'User already exists'
+        msg: 'Module already exists'
     },
     [errors.INVALID_AUTHENTICATION_CREDENTIALS] : {
         auth: false,

@@ -1,4 +1,3 @@
-import {getManager} from "typeorm";
 import UserRepository from "../dal/UserRepository";
 import errorCodes from '../utils/response/errors';
 import {IUser} from "../models/entity/IUser";

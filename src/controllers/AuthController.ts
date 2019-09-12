@@ -1,13 +1,9 @@
 import AuthBll from '../bll/AuthBll';
 import BaseController from "./BaseController";
 import LoginForm from "../entity/LoginForm";
-import {User} from "../entity/user/User";
 import Authentication from "../decorators/auth/Authentication";
-import {IUser} from "../models/entity/IUser";
 import {IContext} from "../models/graphql/IGraphql";
 import {ILogin} from "../models/forms/auth/ILogin";
-import Rbac from "../decorators/auth/Rbac";
-import {AUTH_ENTITIES, AUTH_OPERATIONS} from "../config/constant";
 import {getCustomRepository} from "typeorm";
 import UserRepository from "../dal/UserRepository";
 
@@ -23,7 +19,6 @@ export default class AuthController extends BaseController {
     }
 
     @Authentication
-    // @Rbac([2, 5])
     public async me(args: any, context: IContext): Promise<any> {
 
         try {

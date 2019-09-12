@@ -1,6 +1,7 @@
+// @ts-ignore
 const { makeExecutableSchema } = require('graphql-tools');
 
-module.exports = makeExecutableSchema({
+const userSchema = makeExecutableSchema({
     typeDefs: `
         type Query {
             me: Me
@@ -19,3 +20,5 @@ module.exports = makeExecutableSchema({
         }
     `
 });
+
+export default userSchema;
