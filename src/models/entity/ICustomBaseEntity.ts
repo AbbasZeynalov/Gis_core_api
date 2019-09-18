@@ -7,4 +7,10 @@ export interface ICustomBaseEntity {
     created_by: number;
     updated_by: number;
     active: ON_OFF_STATUS;
+    pagination: Pagination
+}
+
+export interface Pagination {
+    offset: number,
+    limit: number
 }

@@ -3,15 +3,14 @@ import {IContext} from "../models/graphql/IGraphql";
 import ModuleBll from "../bll/ModuleBll";
 import {getCustomRepository} from "typeorm";
 import ModuleRepository from "../dal/ModuleRepository";
+import {Module} from "../entity/module/Module";
 
 export default class ModuleController extends BaseController {
     protected bll: ModuleBll;
-    protected repository: ModuleRepository;
 
     constructor() {
         super();
         this.bll = new ModuleBll(getCustomRepository(ModuleRepository));
-        this.repository = getCustomRepository(ModuleRepository);
 
         this.getModules = this.getModules.bind(this);
     }
@@ -19,7 +18,15 @@ export default class ModuleController extends BaseController {
     public async getModules(args: any, context: IContext) {
         try {
 
-            return await this.repository.findAll();
+            let model = new Module();
+
+            if(args.hasOwnProperty('offset') && args.hasOwnProperty('limit')) {
+
+                model.pagination.offset = args.offset;
+                model.pagination.limit = args.limit;
+            }
+
+            return await this.bll.getModules(model);
 
         } catch (e) {
             return this.catchError(e);

@@ -4,7 +4,7 @@ const { makeExecutableSchema } = require('graphql-tools');
 const moduleSchema = makeExecutableSchema({
     typeDefs: `
         type Query {
-            module: [Module]
+            module(offset: Int, limit: Int): [Module]
         }
         type Module {
             id: ID!,
