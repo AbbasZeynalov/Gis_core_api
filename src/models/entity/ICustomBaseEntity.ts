@@ -11,6 +11,7 @@ export interface ICustomBaseEntity {
 }
 
 export interface Pagination {
-    offset: number,
-    limit: number
+    total: number;
+    offset: number;
+    limit: number;
 }

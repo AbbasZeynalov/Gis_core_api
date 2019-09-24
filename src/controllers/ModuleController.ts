@@ -20,13 +20,18 @@ export default class ModuleController extends BaseController {
 
             let model = new Module();
 
-            if(args.hasOwnProperty('offset') && args.hasOwnProperty('limit')) {
-
+            if(args.hasOwnProperty('offset')) {
                 model.pagination.offset = args.offset;
+
+            }
+
+            if(args.hasOwnProperty('limit')) {
                 model.pagination.limit = args.limit;
             }
 
-            return await this.bll.getModules(model);
+            let data = await this.bll.getModules(model);
+
+            return model.loadReturnDataWithPagination(data);
 
         } catch (e) {
             return this.catchError(e);

@@ -1,9 +1,10 @@
 import {
     Column,
-    Entity,
+    Entity, JoinColumn, OneToMany,
 } from "typeorm";
 import {CustomBaseEntity} from "../CustomBaseEntity";
 import {IModule} from "../../models/entity/IModule";
+import {ModuleVersion} from "./ModuleVersion";
 
 @Entity()
 export class Module extends CustomBaseEntity implements IModule {
@@ -18,6 +19,17 @@ export class Module extends CustomBaseEntity implements IModule {
 
     @Column()
     url: string;
+
+    @OneToMany(type => ModuleVersion, moduleVersion => moduleVersion.module)
+    version: ModuleVersion;
+
+    public loadReturnDataWithPagination(data: any) {
+
+        return {
+            items: data[0],
+            totalCount: data[1]
+        }
+    }
 
 }
 

@@ -9,7 +9,7 @@ const GraphqlRoot = () => {
     return {
         me: auth.me,
         login: auth.actionLogin,
-        module: module.getModules
+        modules: module.getModules
     }
 };
 

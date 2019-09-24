@@ -8,11 +8,12 @@ export default class ModuleBll {
         this.moduleDal = ModuleRepository;
     }
 
-    public getModules(model: IModule): Promise<IModule[]> {
+    public async getModules(model: IModule): Promise<[IModule[], number]> {
 
-        return this.moduleDal.find({
+        return await this.moduleDal.findAndCount({
             skip: model.pagination.offset,
-            take: model.pagination.limit
+            take: model.pagination.limit,
+            relations: ["version"]
         });
     }
 }

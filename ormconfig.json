@@ -16,6 +16,9 @@
   "subscribers": [
     "src/subscriber/**/*.ts"
   ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  },
   "autoSchemaSync": false
 }
 
