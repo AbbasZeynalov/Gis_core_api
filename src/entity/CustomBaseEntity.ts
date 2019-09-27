@@ -1,7 +1,6 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 import {ICustomBaseEntity, Pagination} from "../models/entity/ICustomBaseEntity";
 import {DEFAULT_PAGINATION_LIMIT, ON_OFF_STATUS} from "../config/constant";
-import {stream} from "winston";
 
 export class CustomBaseEntity implements ICustomBaseEntity {
 
