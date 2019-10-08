@@ -41,7 +41,7 @@ Test future:
  except:
   - master
  tags:
-  - api-runner
+  - core-api-runner
  cache: {}
  before_script:
   - npm i
@@ -53,7 +53,7 @@ Build and test app:
   only:
     - master
   tags:
-    - api-runner
+    - core-api-runner
   artifacts:
     paths:
     - dist/
@@ -68,7 +68,7 @@ Deploy App:
   only:
     - master
   tags:
-    - api-runner
+    - core-api-runner
   script:
     - npm test
     - npm run build
