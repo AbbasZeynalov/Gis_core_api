@@ -72,6 +72,7 @@ Deploy App:
   script:
     - npm test
     - npm run build
+    - copy build/bundle.js /gis-app/core-api/build/bundle.js
     - npm run prod:restart
   environment:
     name: dev
