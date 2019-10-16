@@ -5,6 +5,9 @@ import * as bodyParser from "body-parser";
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import GraphqlHttp from "./graphql/root/GraphqlHttp";
+import {Module} from "./entity/module/Module";
+import {ModuleVersion} from "./entity/module/ModuleVersion";
+import {User} from "./entity/user/User";
 const path = require('path');
 
 class App {
@@ -22,7 +25,7 @@ class App {
         this.config();
 
         // @ts-ignore
-        let appDir = path.dirname(require.main.filename);
+        // let appDir = path.dirname(require.main.filename);
 
         await createConnection({
             "type": "mysql",
@@ -34,7 +37,8 @@ class App {
             "synchronize": true,
             "logging": false,
             "entities": [
-                appDir+"/entity/**/*"
+                // appDir+"/entity/**/*"
+                Module, ModuleVersion, User
             ],
             "migrations": [
                 "../migration/*"

@@ -5,13 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
-    "build": "tsc",
+    "build-ts": "tsc",
+    "build": "webpack",
     "tsc:w": "tsc -w",
     "watch": "tsc -w && nodemon ./dist/server.js",
     "devDist": "nodemon ./dist/server.js",
     "start": "ts-node src/server.ts",
     "dev:w": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec ts-node src/server.ts",
-    "prod:start": "pm2 start ./dist/server.js --name core-api",
+    "prod:start": "pm2 start ./build/bundle.js --name core-api",
     "prod:restart": "pm2 restart core-api",
     "dev": "nodemon src/Server.ts"
   },
@@ -58,6 +59,9 @@
     "mocha": "^6.2.0",
     "sinon": "^7.4.1",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "ts-loader": "^6.2.0"
   }
 }
