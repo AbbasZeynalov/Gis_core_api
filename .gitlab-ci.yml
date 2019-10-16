@@ -54,13 +54,9 @@ Build and test app:
     - master
   tags:
     - core-api-runner
-  artifacts:
-    paths:
-    - dist/
   before_script:
    - npm i
   script:
-    - npm run build
     - npm test
     
 Deploy App:
@@ -69,6 +65,9 @@ Deploy App:
     - master
   tags:
     - core-api-runner
+  artifacts:
+    paths:
+      - build/
   script:
     - npm test
     - npm run build
