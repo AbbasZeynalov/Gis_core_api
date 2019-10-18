@@ -24,6 +24,9 @@
 #   paths:
 #   - node_modules/
 #   - dist
+
+variables:
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/core-api-cutom-dir
   
 cache:
   key: ${CI_COMMIT_REF_SLUG}
