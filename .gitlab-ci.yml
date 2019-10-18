@@ -26,7 +26,7 @@
 #   - dist
 
 variables:
-  GIT_CLONE_PATH: "C:\\GitLab-Runner/builds/custom-build"
+  GIT_CLONE_PATH: "C:\\GitLab-Runner/builds/core-api"
   
 cache:
   key: ${CI_COMMIT_REF_SLUG}
