@@ -13,6 +13,7 @@ const moduleSchema = makeExecutableSchema({
         type Module {
             id: ID!,
             name: String!
+            uuid: String!,
             url: String!,
             total: Int!,
             version: [ModuleVersion]

@@ -1,6 +1,6 @@
 import {
     Column,
-    Entity, JoinColumn, OneToMany,
+    Entity, Generated, OneToMany, PrimaryGeneratedColumn,
 } from "typeorm";
 import {CustomBaseEntity} from "../CustomBaseEntity";
 import {IModule} from "../../models/entity/IModule";
@@ -16,6 +16,9 @@ export class Module extends CustomBaseEntity implements IModule {
 
     @Column()
     name: string;
+
+    @Column()
+    uuid: string;
 
     @Column()
     url: string;
