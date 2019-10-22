@@ -21,6 +21,12 @@ export class Module extends CustomBaseEntity implements IModule {
     uuid: string;
 
     @Column()
+    git_deploy_token_username: string;
+
+    @Column()
+    git_deploy_token_password: string;
+
+    @Column()
     url: string;
 
     @OneToMany(type => ModuleVersion, moduleVersion => moduleVersion.module)
